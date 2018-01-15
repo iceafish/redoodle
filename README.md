@@ -1,5 +1,8 @@
 # Redoodle
 
+Redoodle 是一个增强 Redux 和 Typescript 整合的插件库。
+Redoodle 包含了几个可以单独使用的插件，并且相互可以运行的很好：
+
 Redoodle is an addon library for Redux that enhances its integration with TypeScript.
 
 Redoodle includes a few major categories of addons that can be used individually
@@ -15,6 +18,23 @@ and play well with each other:
 
 
 ## Motivation
+
+动机
+
+Redux 带来了明智的 state 管理，在众多的 React 应用架构中找到了自己的定位。
+Typescript 同样获得了大量的注意，和令人印象深刻的每个月的高质量版本迭代。
+遗憾的是，他们两个之间有几处不同导致不能将他们很好的运行在一起：
+
+1. Redux 的 Action 拥有魔法字符串定义，和不透明的参数定义。
+  没有明显的机制来追踪两者之间的相关性。
+
+2. Redux Reducers 没有一种简单的方法来判断不同的Action分支正确的参数类型。
+
+3. TypeScript / JavaScript STL (标准模版库) 缺乏良好的不可变状态更新功能。
+  尽管随着对象和数组的扩展以及它们的合理的类型，这一情况变得更好了，对于某些常见的Redux更新工作流来说，仍然缺乏精确的行为控制。
+
+Redoole尝试解决这些集成上的痛苦，和开发人员在项目中使用Redux and Typescript上的一些痛点。
+
 
 Redux brought sanity to state management,
 and has found itself a seat in many a React application's architecture.
@@ -37,8 +57,12 @@ with Redux and Typescript.
 
 ## Features
 
+特性
+
 
 ### Typed Actions
+
+Typed Actions 是解决跨越Redux-TypeScript鸿沟的问题。来关联Redux Action中魔法字符串和魔法负载参数。通过使用 Redoodle，你可以创建一个Action的定义，来替代你之前所有需要猜测，转换，和哭泣的地方。
 
 Typed Actions do the most legwork to bridge the Redux-TypeScript divide, by correlating
 Action magic type strings with Action magic payloads.
